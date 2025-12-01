@@ -29,7 +29,17 @@ export default function CompassHero({
   }, [categories.length]);
 
   return (
-    <section className="w-full text-black pb-20 px-6">
+    <section className="w-full text-black px-6">
+      {/* Hero Text */}
+      <div className="my-16 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+          Find Clarity. Shape Your Future.
+        </h1>
+        <p className="text-slate-800 text-lg mt-4 max-w-2xl mx-auto">
+          Compass helps you uncover the career path aligned with your skills,
+          values, and ambitions — guided by data and expert insight.
+        </p>
+      </div>
       <div className="mx-auto max-w-6xl">
         {/* Category Bar */}
         <div className="flex space-x-4 overflow-x-auto hide-scrollbar mx-auto justify-center">
@@ -86,26 +96,15 @@ export default function CompassHero({
             );
           })}
         </div>
-
-        {/* Hero Text */}
-        <div className="mt-16 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Find Clarity. Shape Your Future.
-          </h1>
-          <p className="text-slate-800 text-lg mt-4 max-w-2xl mx-auto">
-            Compass helps you uncover the career path aligned with your skills,
-            values, and ambitions — guided by data and expert insight.
-          </p>
-          <Link href={"#"}>
-            <div className="flex items-center justify-center space-x-2 mt-8 border border-black w-fit mx-auto overflow-hidden  rounded-full pl-4 cursor-pointer text-slate-500 hover:text-slate-600 transition ">
-              <p className="text-sm">Start your journey</p>
-              <div className="bg-black  py-3 rounded-full px-7">
-                <ArrowRight />
-              </div>
-            </div>
-          </Link>
-        </div>
       </div>
+      <Link href={"#"}>
+        <div className="flex items-center justify-center space-x-2 mt-8 border border-black w-fit mx-auto overflow-hidden  rounded-full pl-4 cursor-pointer text-slate-500 hover:text-slate-600 transition ">
+          <p className="text-sm">Start your journey</p>
+          <div className="bg-black  py-3 rounded-full px-7">
+            <ArrowRight />
+          </div>
+        </div>
+      </Link>
     </section>
   );
 }

@@ -12,7 +12,6 @@ export default function Header() {
     { label: "Home", href: "/" },
     { label: "Journey", href: "/journey" },
     { label: "Career Scan", href: "/career-scan" },
-    { label: "Advisors", href: "/advisors" },
     { label: "Resources", href: "/resources" },
   ];
 

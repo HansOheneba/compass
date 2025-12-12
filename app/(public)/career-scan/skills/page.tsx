@@ -1,12 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSkillsStore } from "@/lib/store/skillsStore";
+
+interface Skill {
+  name: string;
+  rating: number;
+  category: "soft" | "technical";
+}
 
 export default function SkillsInventory() {
-  interface Skill {
-    name: string;
-    rating: number;
-    category: "soft" | "technical";
-  }
+  const { setInventory } = useSkillsStore();
 
   const [skills, setSkills] = useState<Skill[]>([
     { name: "Communication", rating: 3, category: "soft" },
@@ -37,6 +40,11 @@ export default function SkillsInventory() {
     ]);
     setNewSkill("");
   };
+
+  // Auto-save to store
+  useEffect(() => {
+    setInventory({ skills });
+  }, [skills, setInventory]);
 
   const strongSkills = skills.filter((s) => s.rating >= 4);
   const growthAreas = skills.filter((s) => s.rating <= 2);

@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useAlignmentStore } from "@/lib/store/alignmentStore";
 
 export default function CareerAlignmentChecker() {
+  const { setCheck } = useAlignmentStore();
+
   const questions = [
     {
       text: "My current career or path excites and energizes me regularly.",
@@ -60,6 +63,8 @@ export default function CareerAlignmentChecker() {
       score.total += value;
     });
 
+    // Save to store
+    setCheck(score);
     setResults(score);
   };
 

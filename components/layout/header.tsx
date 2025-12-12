@@ -4,9 +4,25 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useOnboardingStore } from "@/lib/store/onboardingStore";
 
 export default function Header() {
+  const router = useRouter();
+  const { data: onboardingData } = useOnboardingStore();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleEnterPortal = () => {
+    // Check if onboarding is complete
+    const onboardingCompleted =
+      onboardingData?.name && onboardingData?.name.trim().length > 0;
+
+    if (onboardingCompleted) {
+      router.push("/dashboard");
+    } else {
+      router.push("/onboarding");
+    }
+  };
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -42,6 +58,7 @@ export default function Header() {
         {/* Desktop Button */}
         <div className="hidden md:block">
           <Button
+            onClick={handleEnterPortal}
             variant="outline"
             className="border-gray-300 text-gray-900 hover:bg-gray-50"
           >
@@ -72,12 +89,20 @@ export default function Header() {
             </Link>
           ))}
 
-          <Button
-            variant="outline"
-            className="w-full border-gray-300 text-gray-900 hover:bg-gray-50"
+          <button
+            onClick={() => {
+              handleEnterPortal();
+              setMenuOpen(false);
+            }}
+            className="block w-full"
           >
-            Enter Portal
-          </Button>
+            <Button
+              variant="outline"
+              className="w-full border-gray-300 text-gray-900 hover:bg-gray-50"
+            >
+              Enter Portal
+            </Button>
+          </button>
         </div>
       )}
     </header>

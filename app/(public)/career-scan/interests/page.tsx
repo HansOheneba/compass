@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useInterestsStore } from "@/lib/store/interestsStore";
 
 export default function InterestProfiler() {
+  const { setProfile } = useInterestsStore();
+
   const questions = [
     {
       text: "I enjoy creating visual art, music, writing or creative content.",
@@ -57,6 +60,8 @@ export default function InterestProfiler() {
       score[type] += value;
     });
 
+    // Save to store
+    setProfile(score);
     setResults(score);
   };
 

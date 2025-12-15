@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useInterestsStore } from "@/lib/store/interestsStore";
 import { useSkillsStore } from "@/lib/store/skillsStore";
@@ -31,90 +32,88 @@ interface IndustryData {
   };
 }
 
-export default function CareerExplorerPage() {
+const industryData: IndustryData = {
+  "Finance & Accounting": {
+    roles: [
+      { title: "Accountant", level: "Mid-Level" },
+      { title: "Financial Analyst", level: "Senior" },
+      { title: "Auditor", level: "Mid-Level" },
+    ],
+    requiredSkills: [
+      { name: "Excel", importance: "Critical", userHas: false },
+      { name: "Financial Analysis", importance: "Critical", userHas: false },
+      { name: "Attention to Detail", importance: "Important", userHas: true },
+      { name: "Communication", importance: "Important", userHas: true },
+    ],
+    alignmentCriteria: {
+      analytical: "Strong analytical skills for financial modeling",
+      detail: "High attention to detail required for accuracy",
+      impact: "Direct impact on business decisions through financial insights",
+    },
+  },
+  "Education & Research": {
+    roles: [
+      { title: "Professor", level: "Senior" },
+      { title: "Research Analyst", level: "Mid-Level" },
+      { title: "Instructional Designer", level: "Mid-Level" },
+    ],
+    requiredSkills: [
+      { name: "Research", importance: "Critical", userHas: false },
+      { name: "Writing", importance: "Critical", userHas: true },
+      { name: "Teaching", importance: "Important", userHas: false },
+      { name: "Problem Solving", importance: "Important", userHas: true },
+    ],
+    alignmentCriteria: {
+      impact: "Contribute to knowledge advancement and student growth",
+      growth: "Continuous learning opportunities",
+      people: "Mentoring and developing future leaders",
+    },
+  },
+  "Technology & Innovation": {
+    roles: [
+      { title: "Software Engineer", level: "Mid-Level" },
+      { title: "Product Manager", level: "Senior" },
+      { title: "UX Designer", level: "Mid-Level" },
+    ],
+    requiredSkills: [
+      { name: "Programming", importance: "Critical", userHas: false },
+      { name: "Problem Solving", importance: "Critical", userHas: true },
+      { name: "Collaboration", importance: "Important", userHas: true },
+      { name: "System Design", importance: "Important", userHas: false },
+    ],
+    alignmentCriteria: {
+      technical: "Build cutting-edge technology solutions",
+      impact: "Innovate and solve complex problems",
+      growth: "Work with latest tools and frameworks",
+    },
+  },
+  "Healthcare & Medicine": {
+    roles: [
+      { title: "Nurse", level: "Mid-Level" },
+      { title: "Clinical Researcher", level: "Senior" },
+      { title: "Healthcare Administrator", level: "Mid-Level" },
+    ],
+    requiredSkills: [
+      { name: "Empathy", importance: "Critical", userHas: true },
+      { name: "Medical Knowledge", importance: "Critical", userHas: false },
+      { name: "Attention to Detail", importance: "Important", userHas: true },
+      { name: "Communication", importance: "Important", userHas: true },
+    ],
+    alignmentCriteria: {
+      people: "Direct patient care and impact",
+      impact: "Save lives and improve well-being",
+      growth: "Continuous learning in medical field",
+    },
+  },
+};
+
+function CareerExplorerContent() {
   const params = useSearchParams();
   const industry = params.get("industry") || "Career Explorer";
 
   const { profile: interests } = useInterestsStore();
   const { inventory: skills } = useSkillsStore();
   const { check: alignment } = useAlignmentStore();
-
-  // industryData as before...
-  const industryData: IndustryData = {
-    "Finance & Accounting": {
-      roles: [
-        { title: "Accountant", level: "Mid-Level" },
-        { title: "Financial Analyst", level: "Senior" },
-        { title: "Auditor", level: "Mid-Level" },
-      ],
-      requiredSkills: [
-        { name: "Excel", importance: "Critical", userHas: false },
-        { name: "Financial Analysis", importance: "Critical", userHas: false },
-        { name: "Attention to Detail", importance: "Important", userHas: true },
-        { name: "Communication", importance: "Important", userHas: true },
-      ],
-      alignmentCriteria: {
-        analytical: "Strong analytical skills for financial modeling",
-        detail: "High attention to detail required for accuracy",
-        impact:
-          "Direct impact on business decisions through financial insights",
-      },
-    },
-    "Education & Research": {
-      roles: [
-        { title: "Professor", level: "Senior" },
-        { title: "Research Analyst", level: "Mid-Level" },
-        { title: "Instructional Designer", level: "Mid-Level" },
-      ],
-      requiredSkills: [
-        { name: "Research", importance: "Critical", userHas: false },
-        { name: "Writing", importance: "Critical", userHas: true },
-        { name: "Teaching", importance: "Important", userHas: false },
-        { name: "Problem Solving", importance: "Important", userHas: true },
-      ],
-      alignmentCriteria: {
-        impact: "Contribute to knowledge advancement and student growth",
-        growth: "Continuous learning opportunities",
-        people: "Mentoring and developing future leaders",
-      },
-    },
-    "Technology & Innovation": {
-      roles: [
-        { title: "Software Engineer", level: "Mid-Level" },
-        { title: "Product Manager", level: "Senior" },
-        { title: "UX Designer", level: "Mid-Level" },
-      ],
-      requiredSkills: [
-        { name: "Programming", importance: "Critical", userHas: false },
-        { name: "Problem Solving", importance: "Critical", userHas: true },
-        { name: "Collaboration", importance: "Important", userHas: true },
-        { name: "System Design", importance: "Important", userHas: false },
-      ],
-      alignmentCriteria: {
-        technical: "Build cutting-edge technology solutions",
-        impact: "Innovate and solve complex problems",
-        growth: "Work with latest tools and frameworks",
-      },
-    },
-    "Healthcare & Medicine": {
-      roles: [
-        { title: "Nurse", level: "Mid-Level" },
-        { title: "Clinical Researcher", level: "Senior" },
-        { title: "Healthcare Administrator", level: "Mid-Level" },
-      ],
-      requiredSkills: [
-        { name: "Empathy", importance: "Critical", userHas: true },
-        { name: "Medical Knowledge", importance: "Critical", userHas: false },
-        { name: "Attention to Detail", importance: "Important", userHas: true },
-        { name: "Communication", importance: "Important", userHas: true },
-      ],
-      alignmentCriteria: {
-        people: "Direct patient care and impact",
-        impact: "Save lives and improve well-being",
-        growth: "Continuous learning in medical field",
-      },
-    },
-  };
 
   const currentIndustry = industryData[industry];
 
@@ -169,5 +168,19 @@ export default function CareerExplorerPage() {
         <NextSteps />
       </div>
     </main>
+  );
+}
+
+export default function CareerExplorerPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="w-full min-h-screen bg-white px-6 py-12">
+          Loading...
+        </div>
+      }
+    >
+      <CareerExplorerContent />
+    </Suspense>
   );
 }

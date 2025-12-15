@@ -6,6 +6,7 @@ import { Menu } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useOnboardingStore } from "@/lib/store/onboardingStore";
+import Image from "next/image";
 
 export default function Header() {
   const router = useRouter();
@@ -28,7 +29,7 @@ export default function Header() {
     { label: "Home", href: "/" },
     { label: "Journey", href: "/journey" },
     { label: "Career Scan", href: "/career-scan" },
-    { label: "Resources", href: "/resources" },
+    { label: "What We Are", href: "/about" },
   ];
 
   return (
@@ -39,7 +40,7 @@ export default function Header() {
           href="/"
           className="text-2xl font-bold tracking-tight text-gray-900"
         >
-          THE <span className="text-[#1B1856]">COMPASS</span>
+         <Image src="/images/comp.png" alt="Compass Logo" width={50} height={50} />
         </Link>
 
         {/* Desktop Navigation */}

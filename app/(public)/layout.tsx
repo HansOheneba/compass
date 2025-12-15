@@ -11,10 +11,9 @@ export default function PublicLayout({
     <>
       {/* Header */}
       <Header />
-      <div className="h-10"></div>
 
       {/* Main content */}
-      <main className=" mx-auto  md:pt-8 ">{children}</main>
+      <main className=" mx-auto">{children}</main>
 
       {/* Footer*/}
       <Footer />

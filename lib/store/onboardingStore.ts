@@ -3,6 +3,8 @@ import { persist } from "zustand/middleware";
 
 export type OnboardData = {
   name: string;
+  email: string;
+  phone: string;
   ageRange: string;
   country: string;
   careerStatus: string;
@@ -26,6 +28,8 @@ type OnboardingStore = {
 
 const initialData: OnboardData = {
   name: "",
+  email: "",
+  phone: "",
   ageRange: "18-24",
   country: "",
   careerStatus: "student",

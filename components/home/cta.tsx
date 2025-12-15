@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 
 const ctaButtons = [
@@ -26,13 +27,17 @@ export default function CallToAction() {
 
         <div className="flex flex-wrap gap-3 justify-center">
           {ctaButtons.map((text, i) => (
-            <Badge
+            <Link
               key={i}
-              variant="secondary"
-              className="px-4 py-2 text-sm cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors"
+              href={`/career-explorer?industry=${encodeURIComponent(text)}`}
             >
-              {text}
-            </Badge>
+              <Badge
+                variant="secondary"
+                className="px-4 py-2 text-sm cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                {text}
+              </Badge>
+            </Link>
           ))}
         </div>
       </div>

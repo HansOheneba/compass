@@ -1,134 +1,118 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Check } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
-
-const journeySteps = [
+const journey = [
   {
-    title: "Discover Your Strengths",
-    description:
-      "Understand your unique skills, values, and interests to uncover career paths that align with your profile.",
-    highlights: [
-      "Complete skill and personality assessments",
-      "Identify hidden strengths",
-      "Map potential career directions",
-    ],
+    title: "Clarity",
+    subtitle: "Understand your position",
+    img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf",
   },
   {
-    title: "Explore Career Options",
-    description:
-      "Dive into industries, roles, and opportunities that match your strengths and ambitions.",
-    highlights: [
-      "Compare career paths",
-      "Understand required skills and growth potential",
-      "Discover global opportunities",
-    ],
+    title: "Direction",
+    subtitle: "Identify viable paths",
+    img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
   },
   {
-    title: "Skill Development Plan",
-    description:
-      "Build a personalized plan to develop the skills needed for your chosen career path.",
-    highlights: [
-      "Structured learning roadmap",
-      "Prioritize high-impact skills",
-      "Track your progress",
-    ],
+    title: "Preparation",
+    subtitle: "Build leverage",
+    img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
   },
   {
-    title: "Career Transition",
-    description:
-      "Pivot confidently into a new role or industry with actionable strategies.",
-    highlights: [
-      "Create a transition plan",
-      "Update CV and LinkedIn",
-      "Prepare for interviews",
-    ],
+    title: "Transition",
+    subtitle: "Move with intent",
+    img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df",
   },
   {
-    title: "Leadership & Growth",
-    description:
-      "Develop leadership capabilities and position yourself for career advancement.",
-    highlights: [
-      "Mentorship guidance",
-      "Advanced career coaching",
-      "Networking strategies",
-    ],
+    title: "Positioning",
+    subtitle: "Access better rooms",
+    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
   },
   {
-    title: "Expert Advisory",
-    description:
-      "Receive one-on-one guidance to accelerate your career and make informed decisions.",
-    highlights: [
-      "Personalized consultations",
-      "Actionable career roadmap",
-      "Feedback and review sessions",
-    ],
+    title: "Advisory",
+    subtitle: "Decisions, refined",
+    img: "https://images.unsplash.com/photo-1556761175-4b46a572b786",
   },
 ];
 
 export default function JourneyPage() {
   return (
-    <>
+    <main className="bg-white text-black">
+      {/* ================= HERO ================= */}
+      <section className="relative h-[70vh]">
+        <Image
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+          alt="Focused professional"
+          fill
+          priority
+          className="object-cover "
+        />
+        <div className="absolute inset-0 bg-black/60" />
 
-
-      {/* Page Hero */}
-      <section className="w-full px-6 py-20 bg-linear-to-b from-white to-slate-50 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1B1856]">
-          Your Career Journey
-        </h1>
-        <p className="text-gray-700 max-w-2xl mx-auto text-lg">
-          Navigate your path from discovering strengths to achieving growth with
-          structured guidance and actionable insights.
-        </p>
-      </section>
-
-      {/* Journey Steps Grid */}
-      <section className="max-w-6xl mx-auto px-6 py-16 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-        {journeySteps.map((step, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
-            className="bg-white border border-gray-100 rounded-2xl shadow-md p-6 flex flex-col justify-between"
-          >
-            <h3 className="text-xl font-semibold text-[#1B1856] mb-3">
-              {step.title}
-            </h3>
-            <p className="text-gray-700 mb-4">{step.description}</p>
-            <ul className="space-y-2 text-gray-700">
-              {step.highlights.map((highlight, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-[#D4AF37] mt-1" />
-                  <span>{highlight}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
-      </section>
-
-      {/* Call-to-Action */}
-      <section className="text-center mb-32 px-6">
-        <h2 className="text-3xl font-semibold text-[#1B1856] mb-4">
-          Ready to Take the Next Step?
-        </h2>
-        <p className="text-gray-600 mb-6 max-w-xl mx-auto">
-          Schedule a personalized advisory session or start your skill
-          assessment to uncover the career path that’s right for you.
-        </p>
-        <Link href="/pricing">
-          <div className="inline-flex items-center space-x-3 bg-[#1B1856] hover:bg-[#1B1856]/90 text-white px-8 py-3 rounded-full cursor-pointer transition">
-            <span>Start Your Journey</span>
-            <ArrowRight className="w-5 h-5" />
+        <div className="relative z-10 h-full flex items-center justify-center px-6">
+          <div className="max-w-4xl text-center text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              A structured path to
+              <span className="block">better career decisions</span>
+            </h1>
+            <p className="text-white/80 text-lg max-w-2xl mx-auto">
+              Compass guides high-intent professionals from clarity to strategic
+              positioning.
+            </p>
           </div>
-        </Link>
+        </div>
       </section>
 
+      {/* ================= JOURNEY GRID ================= */}
+      <section className="py-24 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {journey.map((step, i) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="group rounded-2xl overflow-hidden border bg-white shadow-sm hover:shadow-md transition-all"
+            >
+              <div className="relative h-56 w-full">
+                <Image
+                  src={step.img}
+                  alt={step.title}
+                  fill
+                  className="object-cover   transition-transform duration-500"
+                />
+              </div>
 
-    </>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-1">{step.title}</h3>
+                <p className="text-gray-600 text-sm">{step.subtitle}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="py-24 bg-gray-50 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">Start with clarity</h2>
+          <p className="text-gray-600 mb-8">
+            Every engagement begins with understanding where you stand.
+          </p>
+
+          <Link
+            href="/career-scan"
+            className="inline-flex items-center gap-3 bg-black text-white px-8 py-3 rounded-full hover:opacity-90 transition"
+          >
+            Begin Career Scan
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }

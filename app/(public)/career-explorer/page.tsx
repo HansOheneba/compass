@@ -105,6 +105,114 @@ const industryData: IndustryData = {
       growth: "Continuous learning in medical field",
     },
   },
+  "Consulting & Technology": {
+    roles: [
+      { title: "Management Consultant", level: "Senior" },
+      { title: "IT Consultant", level: "Mid-Level" },
+      { title: "Business Analyst", level: "Mid-Level" },
+    ],
+    requiredSkills: [
+      { name: "Strategic Thinking", importance: "Critical", userHas: false },
+      { name: "Client Management", importance: "Critical", userHas: false },
+      { name: "Problem Solving", importance: "Important", userHas: true },
+      { name: "Presentation Skills", importance: "Important", userHas: true },
+    ],
+    alignmentCriteria: {
+      strategic: "Solve complex business challenges",
+      impact: "Drive organizational transformation",
+      variety: "Work across multiple industries and clients",
+    },
+  },
+  "Data Science & Analytics": {
+    roles: [
+      { title: "Data Scientist", level: "Senior" },
+      { title: "Data Analyst", level: "Mid-Level" },
+      { title: "Machine Learning Engineer", level: "Mid-Level" },
+    ],
+    requiredSkills: [
+      { name: "Statistics", importance: "Critical", userHas: false },
+      { name: "Python/R", importance: "Critical", userHas: false },
+      { name: "Data Visualization", importance: "Important", userHas: true },
+      { name: "SQL", importance: "Important", userHas: false },
+    ],
+    alignmentCriteria: {
+      analytical: "Turn data into actionable insights",
+      technical: "Work with advanced algorithms and models",
+      impact: "Data-driven decision making across organizations",
+    },
+  },
+  "Marketing & Sales": {
+    roles: [
+      { title: "Marketing Manager", level: "Senior" },
+      { title: "Sales Executive", level: "Mid-Level" },
+      { title: "Digital Marketing Specialist", level: "Mid-Level" },
+    ],
+    requiredSkills: [
+      { name: "Communication", importance: "Critical", userHas: true },
+      { name: "Market Analysis", importance: "Critical", userHas: false },
+      { name: "Creativity", importance: "Important", userHas: true },
+      { name: "Negotiation", importance: "Important", userHas: false },
+    ],
+    alignmentCriteria: {
+      creative: "Develop compelling campaigns and strategies",
+      impact: "Directly drive revenue and business growth",
+      dynamic: "Fast-paced environment with measurable results",
+    },
+  },
+  "Creative & Design": {
+    roles: [
+      { title: "Graphic Designer", level: "Mid-Level" },
+      { title: "Creative Director", level: "Senior" },
+      { title: "UI/UX Designer", level: "Mid-Level" },
+    ],
+    requiredSkills: [
+      { name: "Adobe Creative Suite", importance: "Critical", userHas: false },
+      { name: "Visual Communication", importance: "Critical", userHas: true },
+      { name: "Creativity", importance: "Important", userHas: true },
+      { name: "Attention to Detail", importance: "Important", userHas: true },
+    ],
+    alignmentCriteria: {
+      creative: "Express ideas through visual storytelling",
+      impact: "Shape brand identity and user experiences",
+      innovation: "Push creative boundaries and trends",
+    },
+  },
+  "Engineering & Science": {
+    roles: [
+      { title: "Mechanical Engineer", level: "Mid-Level" },
+      { title: "Research Scientist", level: "Senior" },
+      { title: "Biomedical Engineer", level: "Mid-Level" },
+    ],
+    requiredSkills: [
+      { name: "Mathematics", importance: "Critical", userHas: false },
+      { name: "Technical Design", importance: "Critical", userHas: false },
+      { name: "Problem Solving", importance: "Important", userHas: true },
+      { name: "Laboratory Skills", importance: "Important", userHas: false },
+    ],
+    alignmentCriteria: {
+      innovation: "Design and build innovative solutions",
+      technical: "Apply scientific principles to real-world problems",
+      impact: "Advance technology and scientific understanding",
+    },
+  },
+  Healthcare: {
+    roles: [
+      { title: "Physician", level: "Senior" },
+      { title: "Physical Therapist", level: "Mid-Level" },
+      { title: "Healthcare Manager", level: "Mid-Level" },
+    ],
+    requiredSkills: [
+      { name: "Patient Care", importance: "Critical", userHas: true },
+      { name: "Medical Terminology", importance: "Critical", userHas: false },
+      { name: "Compassion", importance: "Important", userHas: true },
+      { name: "Teamwork", importance: "Important", userHas: true },
+    ],
+    alignmentCriteria: {
+      service: "Make a difference in people's lives every day",
+      stability: "High demand and stable career paths",
+      growth: "Continuous advancement in medical knowledge and technology",
+    },
+  },
 };
 
 function CareerExplorerContent() {
@@ -123,8 +231,8 @@ function CareerExplorerContent() {
         <div className="max-w-5xl mx-auto">
           <h1 className="text-3xl font-bold mb-4">Industry Not Found</h1>
           <p className="text-gray-600">
-            The industry "{industry}" is not available. Please select a
-            different industry.
+            The industry &quot;{industry}&quot; is not available. Please select
+            a different industry.
           </p>
         </div>
       </main>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useInterestsStore } from "@/lib/store/interestsStore";
 
 export default function InterestProfiler() {

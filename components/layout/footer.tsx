@@ -9,25 +9,31 @@ export default function Footer() {
     {
       title: "Explore",
       links: [
-        { label: "Assessments", href: "/assessments" },
+        { label: "Assessments", href: "/career-scan" },
         { label: "Career Paths", href: "/careers" },
-        { label: "Roadmaps", href: "/roadmaps" },
-        { label: "Learn", href: "/learn" },
       ],
     },
-    {
-      title: "Programs",
-      links: [
-        { label: "Scholarships", href: "/scholarships" },
-        { label: "Internships", href: "/internships" },
-        { label: "Bootcamps", href: "/bootcamps" },
-      ],
-    },
+    // {
+    //   title: "Programs",
+    //   links: [
+    //     { label: "Scholarships", href: "/scholarships" },
+    //     { label: "Internships", href: "/internships" },
+    //     { label: "Bootcamps", href: "/bootcamps" },
+    //   ],
+    // },
     {
       title: "Company",
       links: [
         { label: "About", href: "/about" },
-        { label: "Contact", href: "/contact" },
+        { label: "Contact", href: "https://celereyv2.vercel.app/contact" },
+        // { label: "Privacy Policy", href: "/privacy" },
+        // { label: "Terms of Service", href: "/terms" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+
         { label: "Privacy Policy", href: "/privacy" },
         { label: "Terms of Service", href: "/terms" },
       ],

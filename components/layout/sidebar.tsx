@@ -60,7 +60,7 @@ const menuSections: MenuSection[] = [
     items: [
       {
         name: "Settings",
-        href: "/settings",
+        href: "/dashboard/settings",
         icon: <Settings className="w-5 h-5" />,
       },
     ],

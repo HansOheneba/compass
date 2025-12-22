@@ -28,6 +28,7 @@ export default function Header() {
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "Journey", href: "/journey" },
+    { label: "Subscribe", href: "/subscribe" },
     { label: "Career Scan", href: "/career-scan" },
     { label: "What We Are", href: "/about" },
   ];
